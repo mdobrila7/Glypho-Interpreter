@@ -1,0 +1,30 @@
+    Dobrila Madalin 334CA
+
+    Tema consta in implementarea unui interpretor Glypho. La baza executiei
+programului sta o stiva reprezentata ca o lista inlantuita in Java. Am ales
+LinkedList pentru ca rotatiile (LRot si RRot) se fac in timp constant, nu
+in timp liniar ca la ArrayList.
+    Am ales Java pentru clasa BigInteger care-mi permite sa lucrez cu numere
+ce se reprezinta pe mai mult de 8 biti, pentru bonus. Totodata, clasa vine
+si cu operatii de transformare dintr-o baza in alta, atunci cand se converteste
+numarul din forma de String in forma de BigInteger, nu a mai trebuit sa fac
+eu functie.
+
+    Ordinea instructiunilor:
+1) Se parsseaza argumentele din linia de comanda si se seteaza baza (implicit 10).
+2) Se deschide fisierul de intrare si se citeste linia care reprezinta textul
+de prelucrat.
+3) Se filtreaza textul pentru a sterge caracterele care nu sunt valide.
+4) Se sparge textul in cuvinte de cate 4 litere ce reprezinta comenzile nedecodificate
+inca. Se verifica daca numarul de caractere este multiplu de 4.
+5) Se decodifica instructiunile aducandu-se la forma de baza cu care va lucra
+stiva.
+6) Se verifica daca parantezele (L-brace si R-brace) se deschid si se inchid
+in mod corect, totodata se salveaza si 'match'-urile dintre paranteze, in ambele
+sensuri, utilizand 2 map-uri.
+7) Se executa comenzile dupa instructiunile din enuntul temei.
+
+    Functia transform este cea care decodeaza comanda. Ea primeste ca parametru
+o lista de String-uri (si nu un String propriu-zis) pentru ca atunci cand se executa
+comanda 'execute' numerele ce se gasesc pe stiva pot sa aiba mai multe cifre, nu una,
+caz in care trebuie reprezentate ca String-uri, nu ca char-uri.
